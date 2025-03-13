@@ -1,0 +1,24 @@
+@startuml
+!define RECTANGLE class
+
+skinparam linetype ortho
+
+title Контекстная диаграмма C4: Внедрение сервисов "Умный дом"
+
+rectangle "Собственники" as Собственники <<Пользователи>> {
+}
+
+rectangle "Жильцы" as Жильцы <<Пользователи>> {
+}
+
+rectangle "Партнерская платформа \n \"Умный дом\"" as ПартнерскаяПлатформа <<Внешняя система>> {
+}
+
+rectangle "PropDevelopment" as PropDevelopment <<Система>> {
+}
+
+Собственники --> PropDevelopment : Использует мобильное приложение \n для управления сервисами
+Жильцы --> PropDevelopment : Использует домофон/шлагбаум
+PropDevelopment --> ПартнерскаяПлатформа : Интеграция через API \n (управление домофоном и шлагбаумом)
+
+@enduml
